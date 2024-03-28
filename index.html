@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+
+    <title>AlpineJS</title>
+</head>
+
+<body>
+    <div class="container mx-auto mt-6 max-w-sm">
+        <div x-data="{open: false, name: 'Ifti', search: ''}">
+
+            <button x-on:click="open = !open" x-bind:class="open ? 'bg-red-500' : 'bg-slate-700'" class="text-white px-4 py-2 rounded-xl">
+                Toggle
+            </button>
+
+            <div x-show="open" x-transition x-cloak>
+                <p class="bg-gray-200 p-4 my-6 rounded">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+            </div>
+
+            <div class="my-4">
+                My Name is <span x-text="name" class="font-bold" x-cloak></span>
+            </div>
+
+            <div x-effect="console.log(open)"></div>
+
+            <input type="text" x-model="search" class="border p-2 w-full mb-2 mt-6" placeholder="Search">
+
+            <p>
+                <span class="font-bold">Searching for:</span>
+                <span x-text="search"></span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
